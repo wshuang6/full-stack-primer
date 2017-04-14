@@ -1,7 +1,7 @@
 import {
-    FETCH_CHEESE_REQUEST,
-    FETCH_CHEESE_SUCCESS,
-    FETCH_CHEESE_ERROR
+    FETCH_CHEESES_REQUEST,
+    FETCH_CHEESES_SUCCESS,
+    FETCH_CHEESES_ERROR
 } from '../actions/cheese';
 
 const initialState = {
@@ -11,15 +11,16 @@ const initialState = {
 };
 
 export default (state=initialState, action) => {
-    if(action.type === FETCH_CHEESE_REQUEST) {
+    if(action.type === FETCH_CHEESES_REQUEST) {
         return {
             ...state,
             loading: true,
             error: null
         }
     }
-
-    if(action.type === FETCH_CHEESE_SUCCESS) {
+    console.log(action, FETCH_CHEESES_SUCCESS)
+    if(action.type === FETCH_CHEESES_SUCCESS) {
+      console.log("got to the if")
         return {
             ...state,
             loading: false,
@@ -28,7 +29,7 @@ export default (state=initialState, action) => {
         }
     }
 
-    if(action.type === FETCH_CHEESE_ERROR) {
+    if(action.type === FETCH_CHEESES_ERROR) {
         return {
             ...state,
             loading: false,
